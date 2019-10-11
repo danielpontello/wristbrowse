@@ -1,2 +1,4 @@
-# WristBrowse
-A Tiny Web Browser for the Pebble Time smartwatch
+WristBrowser
+============
+
+WristBrowser is a simple browser for the Pebble smartwatch.
