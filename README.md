@@ -14,7 +14,7 @@ If some file is unavailable, you can find a full backup of Pebble assets [here](
 
 ## Building
 
-With the Pebble SDK installed, run the ```build.sh``` script on this folder to build and start the app on an emulator.
+With the Pebble SDK installed, run the ```build.sh``` script on this folder to build and start the app on an emulator. The main application source code is in the ```src/js/app.js``` file.
 
 ## Acknowledgements
 
