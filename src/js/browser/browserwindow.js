@@ -6,8 +6,7 @@ var Vector2 = require('vector2');
 
 var BrowserWindow = module.exports;
 
-BrowserWindow.Show = function(url)
-{        
+BrowserWindow.Show = function (url) {
     // Main Window
     var browserWindow = new UI.Window(
         {

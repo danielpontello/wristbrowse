@@ -6,14 +6,15 @@ var Vector2 = require('vector2');
 
 var HTMLParser = module.exports;
 
-HTMLParser.CreateElements = function(htmlContent, pbWindow) {
+HTMLParser.CreateElements = function (htmlContent, pbWindow) {
     // String.contains implementation from MDN
     if (!String.prototype.contains) {
-        String.prototype.contains = function() {'use strict';
-        return String.prototype.indexOf.apply(this, arguments) !== -1;
+        String.prototype.contains = function () {
+            'use strict';
+            return String.prototype.indexOf.apply(this, arguments) !== -1;
         };
     }
-    
+
     var startX = 2;
     var startY = 22;
     var startColor = 'black'
@@ -28,25 +29,23 @@ HTMLParser.CreateElements = function(htmlContent, pbWindow) {
     var prefix = "";
 
     // Remove whitespace and newlines from the HTML
-    htmlContent = htmlContent.trim().split("\n").map(function(s){ return s.trim(); }).join("");
+    htmlContent = htmlContent.trim().split("\n").map(function (s) { return s.trim(); }).join("");
     remainingContent = htmlContent;
 
     const re = /<[^>]*>/;
 
-    while(remainingContent.length > 0)
-    {        
+    while (remainingContent.length > 0) {
         // Match tag
         var match = remainingContent.match(re)[0];
         var tagLength = match.length
 
         // If we are on a tag
-        if(remainingContent[0] == "<")
-        {
+        if (remainingContent[0] == "<") {
             console.log("Tag: " + match);
 
             // Parse start tags
             ignore = false;
-            
+
             if (match.contains("<p")) {
                 currentX = 2;
             }
@@ -68,7 +67,7 @@ HTMLParser.CreateElements = function(htmlContent, pbWindow) {
             if (match.contains("<head") || match.contains("<script") || match.contains("<title")) {
                 ignore = true;
             }
-            
+
             // Parse end tags
 
             if (match.contains("</p")) {
@@ -93,12 +92,11 @@ HTMLParser.CreateElements = function(htmlContent, pbWindow) {
                 ignore = false;
             }
 
-            if (match.contains("</script") || match.contains("</img"))
-            {
+            if (match.contains("</script") || match.contains("</img")) {
                 console.log("deignoring script tag");
                 // ignore = false;
             }
-            
+
             // remove it from the html, we already parsed it
             remainingContent = remainingContent.substring(tagLength);
         } else {
@@ -108,7 +106,7 @@ HTMLParser.CreateElements = function(htmlContent, pbWindow) {
             console.log("Text: " + text);
 
             // if the tag has a visual representation, create it
-            if(ignore === false) {
+            if (ignore === false) {
                 var newText = new UI.Text(
                     {
                         position: new Vector2(currentX, currentY),
