@@ -3,6 +3,7 @@
 
 var UI = require('ui');
 var Vector2 = require('vector2');
+var Keyboard = require('pebblejs-keyboard');
 
 var HTMLParser = module.exports;
 
@@ -127,5 +128,4 @@ HTMLParser.CreateElements = function (htmlContent, pbWindow) {
         console.log(remainingContent)
     }
     console.log("Parsing complete")
-
 }

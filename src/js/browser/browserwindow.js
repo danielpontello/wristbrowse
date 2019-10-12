@@ -38,7 +38,7 @@ BrowserWindow.Show = function (url) {
         {
             position: new Vector2(0, 0),
             size: new Vector2(144, 22),
-            text: "http://text.npr.org/",
+            text: url,
             font: "gothic-14",
             color: "black"
         }
